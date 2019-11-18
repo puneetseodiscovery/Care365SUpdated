@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="1dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10"
+            android:id="@+id/ll_circle_view_item"
+            android:padding="@dimen/ten_dp">
+
+
+            <ImageView
+                android:id="@+id/iv_create_circle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/plus_icon"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/tv_create_circle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Hello"
+                android:textSize="19sp"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="@dimen/twozero_dp"
+                android:textColor="@color/black"
+                android:singleLine="true"
+                android:layout_weight="8.5">
+            </TextView>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".login.LoginActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="center"
+        android:background="@color/colorAccent">
+
+        <RelativeLayout
+            android:id="@+id/iv_back"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="onBackClicked">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/header_back_icon" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_saveUserImage"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_save_black_24dp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:inputType="textMultiLine"
+            android:text="@string/account"
+            android:textColor="@color/white"
+            android:textSize="19sp" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/onefive_dp"
+            android:orientation="vertical"
+            tools:context=".user.homeScreen.bottomFragments.SettingsFragment">
+
+
+            <FrameLayout
+                android:id="@+id/fl_profile_pic"
+                android:layout_width="@dimen/onefivezero_dp"
+                android:layout_height="@dimen/onefivezero_dp"
+                android:layout_below="@+id/sign_up_title"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profilePic"
+                    android:layout_width="@dimen/onetwozero_dp"
+                    android:layout_height="@dimen/onetwozero_dp"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/default_user_img"
+                    app:civ_border_color="#FFFFFF"
+                    app:civ_border_width="2dp" />
+            </FrameLayout>
+
+            <RelativeLayout
+                android:id="@+id/add_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fl_profile_pic"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/ten_dp"
+                android:onClick="onAddPhotoClicked">
+
+                <RelativeLayout
+                    android:id="@+id/iv_cam"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="@dimen/ten_dp"
+                        app:srcCompat="@mipmap/cam_icon" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_add_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/iv_cam"
+                    android:text="@string/add_photo"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/tv_edit_circle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/user_account_icon"
+                android:drawableRight="@mipmap/frwd_arrow_icon"
+                android:drawablePadding="@dimen/onefive_dp"
+                android:gravity="center_vertical"
+                android:onClick="onEditUsernameClicked"
+                android:padding="@dimen/ten_dp"
+                android:text="@string/edit_user_name"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tv_add_circle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/settings_phone_icon"
+                android:drawableRight="@mipmap/frwd_arrow_icon"
+                android:drawablePadding="@dimen/onefive_dp"
+                android:gravity="center_vertical"
+                android:onClick="onEditPhoneClicked"
+                android:padding="@dimen/ten_dp"
+                android:text="@string/edit_phone_number"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tv_delete_circle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/privacy_policy_icon"
+                android:drawableRight="@mipmap/frwd_arrow_icon"
+                android:drawablePadding="@dimen/onefive_dp"
+                android:gravity="center_vertical"
+                android:onClick="onChangePasswordClicked"
+                android:padding="@dimen/ten_dp"
+                android:text="@string/change_password"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tv_leave_circle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/delete_icon"
+                android:drawableRight="@mipmap/frwd_arrow_icon"
+                android:drawablePadding="@dimen/onefive_dp"
+                android:gravity="center_vertical"
+                android:onClick="onDeleteAccountClicked"
+                android:padding="@dimen/ten_dp"
+                android:text="@string/delete_account"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

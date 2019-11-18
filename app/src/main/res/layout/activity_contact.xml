@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login.LoginActivity">
+
+    <RelativeLayout
+        android:id="@+id/layout_Action"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="center"
+        android:background="@color/colorAccent">
+
+        <RelativeLayout
+            android:id="@+id/iv_back"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="onBackClicked">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/header_back_icon" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:inputType="textMultiLine"
+            android:text="@string/contact_us"
+            android:textColor="#ffffff"
+            android:textSize="19sp" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/layout_Action">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="68dp">
+
+            <RelativeLayout
+                android:id="@+id/layout_message"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16sp"
+                android:background="@drawable/bg_add_photo_dialog"
+                android:backgroundTint="@color/bg_notification_alert">
+
+                <RelativeLayout
+                    android:id="@+id/layout_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp">
+
+                    <TextView
+                        android:id="@+id/tv_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="@string/email"
+                        android:textColor="@color/black"
+                        android:textSize="19sp" />
+
+                    <TextView
+                        android:id="@+id/et_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:gravity="center_vertical"
+                        android:text="amti1010@gmail.com"
+                        android:layout_below="@+id/tv_email"
+                        android:background="#A9D8D5D5"
+                        android:textSize="17sp"
+                        android:paddingLeft="5dp"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/layout_email"
+                    android:layout_margin="16dp">
+
+                    <TextView
+                        android:id="@+id/tv_message"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="@string/message"
+                        android:textColor="@color/black"
+                        android:textSize="19sp" />
+
+                    <EditText
+                        android:id="@+id/et_message"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_below="@+id/tv_message"
+                        android:background="#A9D8D5D5"
+                        android:gravity="top"
+                        android:hint="Write your message here.."
+                        android:imeOptions="actionDone"
+                        android:inputType="textMultiLine"
+                        android:padding="5dp"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:textSize="17sp" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btn_reset_pass"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/fivezero_dp"
+                android:layout_below="@+id/layout_message"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="25dp"
+                android:background="@drawable/bg_round_rect_bordered"
+                android:backgroundTint="@color/colorAccent"
+                android:onClick="onSendClicked"
+                android:text="@string/send"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="19sp" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+</RelativeLayout>

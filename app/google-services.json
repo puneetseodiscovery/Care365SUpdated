@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "678316106765",
+    "firebase_url": "https://care365-29dbd.firebaseio.com",
+    "project_id": "care365-29dbd",
+    "storage_bucket": "care365-29dbd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678316106765:android:c4547d660b646475",
+        "android_client_info": {
+          "package_name": "com.careS365"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "678316106765-6667k7712usum8aj81131gc63s8lkb5g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.careS365",
+            "certificate_hash": "1a7e8201bc06d6281ef6a1d0589d23dab9b600ca"
+          }
+        },
+        {
+          "client_id": "678316106765-utmgc4k2jc0gqnqjb3gnuipq3b6vcvmd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGgfuDTTmZ04NnrzoVswEsCqorc9uYXl8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "678316106765-utmgc4k2jc0gqnqjb3gnuipq3b6vcvmd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

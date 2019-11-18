@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login.LoginActivity"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorAccent"
+        android:layout_gravity="center">
+
+        <RelativeLayout
+            android:id="@+id/iv_back"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:onClick="onBackClicked">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/header_back_icon" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:text="@string/notifications"
+            android:textSize="19sp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/threezero_dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <View android:layout_height="2dp"
+                android:layout_width="wrap_content"
+                android:layout_above="@+id/tv_ptext"
+                android:background="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_low_battery_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/logo"
+                android:gravity="center"
+                android:padding="@dimen/ten_dp"
+                android:text="@string/low_battery_notification"
+                android:textColor="@color/colorAccent"
+                android:textSize="19sp"
+                android:background="@color/bg_notification_alert"/>
+
+            <View android:layout_height="2dp"
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/tv_low_battery_text"
+                android:background="@color/black"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_low_battery_text"
+                android:background="@color/add_photo_dialog_color"
+                android:id="@+id/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10"
+                    android:id="@+id/ll_item"
+                    android:padding="@dimen/ten_dp"
+                    android:background="@color/add_photo_dialog_color">
+
+
+                    <ImageView
+                        android:id="@+id/iv_circle_img_lb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@mipmap/messages_profile_pic"
+                        android:scaleType="centerCrop" />
+
+                    <TextView
+                        android:id="@+id/tv_create_text_lb"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Circle"
+                        android:textSize="19sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/twozero_dp"
+                        android:textColor="@color/black"
+                        android:singleLine="true"
+                        android:layout_weight="8.5">
+                    </TextView>
+
+                    <Switch
+                        android:id="@+id/switch_lb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <View android:layout_height="2dp"
+                android:layout_width="wrap_content"
+                android:background="@color/black"
+                android:layout_below="@+id/cardView"
+                android:id="@+id/v"/>
+
+
+
+
+
+
+            <View android:layout_height="2dp"
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/v"
+                android:layout_marginTop="@dimen/threezero_dp"
+                android:layout_above="@+id/tv_ptext"
+                android:background="@color/black"
+                android:id="@+id/v1"/>
+
+            <TextView
+                android:id="@+id/tv_range_alert_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/v1"
+                android:gravity="center"
+                android:padding="@dimen/ten_dp"
+                android:text="@string/range_alert_notification"
+                android:textColor="@color/colorAccent"
+                android:textSize="19sp"
+                android:background="@color/bg_notification_alert"/>
+
+            <View android:layout_height="2dp"
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/tv_range_alert_text"
+                android:background="@color/black"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_range_alert_text"
+                android:background="@color/add_photo_dialog_color"
+                android:id="@+id/cardView1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10"
+                    android:padding="@dimen/ten_dp"
+                    android:background="@color/add_photo_dialog_color">
+
+
+                    <ImageView
+                        android:id="@+id/iv_circle_img_ra"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@mipmap/messages_profile_pic"
+                        android:scaleType="centerCrop" />
+
+                    <TextView
+                        android:id="@+id/tv_circle_text_ra"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="Circle"
+                        android:textSize="19sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/twozero_dp"
+                        android:textColor="@color/black"
+                        android:singleLine="true"
+                        android:layout_weight="8.5">
+                    </TextView>
+
+                    <Switch
+                        android:id="@+id/switch_ra"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <View android:layout_height="2dp"
+                android:layout_width="wrap_content"
+                android:background="@color/black"
+                android:layout_below="@+id/cardView1"/>
+
+
+        </RelativeLayout>
+
+
+
+    </ScrollView>
+
+
+</LinearLayout>

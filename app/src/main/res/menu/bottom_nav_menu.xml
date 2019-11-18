@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_members"
+        android:icon="@mipmap/members_icon"
+        android:title="@string/title_members" />
+
+    <item
+        android:id="@+id/navigation_create_circle"
+        android:icon="@mipmap/create_circle_nav_icon"
+        android:title="@string/title_create_circle" />
+
+    <item
+        android:id="@+id/navigation_messages"
+        android:icon="@mipmap/messages_icon"
+        android:title="@string/title_messages" />
+
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@mipmap/settings_icon"
+        android:title="@string/title_settings" />
+
+</menu>

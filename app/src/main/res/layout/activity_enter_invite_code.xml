@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="450dp"
+        android:orientation="vertical"
+        android:background="@drawable/bg_add_photo_dialog"
+        android:paddingBottom="@dimen/threezero_dp"
+        android:layout_margin="@dimen/onefive_dp">
+
+        <TextView
+            android:id="@+id/tv_join_circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/joining_circle_text"
+            android:layout_marginLeft="@dimen/ten_dp"
+            android:textSize="20dp"
+            android:layout_marginTop="@dimen/ten_dp"
+            android:paddingLeft="@dimen/twozero_dp"
+            android:paddingRight="@dimen/twozero_dp"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/twozero_dp">
+
+
+            <!--<EditText
+                android:layout_width="@dimen/fourzero_dp"
+                android:layout_height="@dimen/fourzero_dp"
+                android:textColor="@color/black"
+                android:background="@drawable/bg_round_rect_bordered"
+                android:maxLength="1"
+                android:textSize="15dp"
+                android:layout_marginRight="@dimen/five_dp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:layout_width="@dimen/fourzero_dp"
+                android:layout_height="@dimen/fourzero_dp"
+                android:textColor="@color/black"
+                android:background="@drawable/bg_round_rect_bordered"
+                android:maxLength="1"
+                android:textSize="15dp"
+                android:layout_marginRight="@dimen/five_dp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:layout_width="@dimen/fourzero_dp"
+                android:layout_height="@dimen/fourzero_dp"
+                android:textColor="@color/black"
+                android:layout_marginRight="@dimen/five_dp"
+                android:background="@drawable/bg_round_rect_bordered"
+                android:maxLength="1"
+                android:textSize="15dp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:layout_width="@dimen/fourzero_dp"
+                android:layout_height="@dimen/fourzero_dp"
+                android:textColor="@color/black"
+                android:layout_marginRight="@dimen/five_dp"
+                android:background="@drawable/bg_round_rect_bordered"
+                android:maxLength="1"
+                android:textSize="15dp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:layout_width="@dimen/fourzero_dp"
+                android:layout_height="@dimen/fourzero_dp"
+                android:textColor="@color/black"
+                android:layout_marginRight="@dimen/five_dp"
+                android:background="@drawable/bg_round_rect_bordered"
+                android:maxLength="1"
+                android:textSize="15dp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:layout_width="@dimen/fourzero_dp"
+                android:layout_height="@dimen/fourzero_dp"
+                android:textColor="@color/black"
+                android:background="@drawable/bg_round_rect_bordered"
+                android:maxLength="1"
+                android:textSize="15dp"
+                android:textStyle="bold"/>-->
+
+            <com.chaos.view.PinView
+                android:id="@+id/pv_otp"
+                style="@style/PinWidget.PinView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:cursorVisible="true"
+                android:gravity="center"
+                android:hint="******"
+                android:inputType="text"
+                android:itemBackground="@drawable/bg_round_rect_bordered"
+                android:paddingTop="@dimen/five_dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cursorColor="@color/black"
+                app:cursorWidth="2dp"
+                app:hideLineWhenFilled="true"
+                app:itemCount="6"
+                app:itemHeight="45dp"
+                app:itemRadius="4dp"
+                app:itemSpacing="3dp"
+                app:itemWidth="45dp"
+                app:lineColor="@color/white"
+                app:lineWidth="2dp"
+                app:viewType="none"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_get_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/get_code_text"
+            android:layout_marginLeft="@dimen/ten_dp"
+            android:textSize="18dp"
+            android:drawablePadding="@dimen/ten_dp"
+            android:drawableLeft="@mipmap/invite_code_user_icon"
+            android:layout_marginTop="@dimen/ten_dp"
+            android:paddingLeft="@dimen/twozero_dp"
+            android:paddingRight="@dimen/twozero_dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:text="@string/submit"
+            android:id="@+id/btn_submit"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:onClick="onSubmitButtonClicked"
+            android:layout_height="@dimen/fivezero_dp"
+            android:layout_below="@+id/et_signup_cfrm_pass"
+            android:paddingLeft="@dimen/fourzero_dp"
+            android:paddingRight="@dimen/fourzero_dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/onefive_dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/bg_rect_solid_rounded"
+            android:backgroundTint="@color/colorAccent"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="OR"
+            android:layout_marginLeft="@dimen/ten_dp"
+            android:textSize="24dp"
+            android:layout_marginTop="@dimen/ten_dp"
+            android:paddingLeft="@dimen/twozero_dp"
+            android:paddingRight="@dimen/twozero_dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/create_circle_underline"
+            android:layout_marginLeft="@dimen/ten_dp"
+            android:textSize="20dp"
+            android:onClick="onCreateCircleClicked"
+            android:layout_marginTop="@dimen/ten_dp"
+            android:textColor="@color/colorAccent" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

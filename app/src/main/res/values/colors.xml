@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#063066</color>
+    <color name="colorAccent">#800101</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="welcome_text_color">#c57d0a</color>
+    <color name="add_photo_dialog_color">#cbcece</color>
+    <color name="bg_notification_alert">#e3e7e7</color>
+</resources>

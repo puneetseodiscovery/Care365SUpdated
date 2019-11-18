@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/coordinator">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout android:id="@+id/tv_home_title"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorAccent">
+
+            <RelativeLayout
+                android:id="@+id/iv_back"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_centerVertical="true"
+                android:onClick="onBackClicked">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@mipmap/header_back_icon" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:text="Provider"
+                android:textSize="19sp"
+                android:gravity="center"
+                android:layout_weight="9"
+                android:textColor="@color/white"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:map="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomsheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#F3F3F3"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/ten_dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <View android:layout_height="2dp"
+            android:layout_width="wrap_content"
+            android:background="@color/black"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fourzero_dp"
+            android:id="@+id/iv_rl_fab">
+            <TextView
+                android:id="@+id/iv_bottom_sheet"
+                android:layout_centerInParent="true"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:text="Friend's trip detail" />
+        </RelativeLayout>
+
+        <View android:layout_height="2dp"
+            android:layout_width="wrap_content"
+            android:background="@color/black"
+            android:layout_below="@+id/iv_bottom_sheet"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="@color/bg_notification_alert">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/onefive_dp"
+                    android:layout_marginLeft="@dimen/five_dp"
+                    android:layout_marginTop="@dimen/ten_dp"
+                    android:layout_marginEnd="@dimen/ten_dp"
+                    android:layout_marginRight="@dimen/ten_dp"
+                    android:weightSum="10"
+                    android:padding="@dimen/ten_dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:id="@+id/ll_marks_view"
+                        android:layout_weight="1">
+
+                        <LinearLayout android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:srcCompat="@mipmap/red_solid_map_icon" />
+
+                        </LinearLayout>
+
+                        <View android:layout_height="50dp"
+                            android:layout_width="2dp"
+                            android:background="@color/black" />
+
+                        <LinearLayout android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:srcCompat="@mipmap/red_location_icon" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:orientation="vertical"
+                        android:id="@+id/ll_marks"
+                        android:layout_weight="7"
+                        android:layout_marginLeft="@dimen/onefive_dp">
+
+                        <TextView android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:orientation="vertical"
+                            android:text="Unknown"
+                            android:textColor="@color/black"
+                            android:layout_marginBottom="@dimen/fivezero_dp"/>
+
+                        <TextView android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:text="717,Chandi path,sector 31A, Chandigarh,Punjab(India)"
+                            android:textColor="@color/black" />
+
+                        <!--<TextView android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:text="717,Chandi path,sector 31A, Chandigarh,Punjab(India)"
+                            android:textColor="@color/black" />-->
+
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_toRightOf="@+id/ll_marks"
+                        android:layout_marginLeft="@dimen/onefive_dp"
+                        android:id="@+id/ll_result_pass_fail"
+                        android:gravity="center"
+                        android:layout_weight="3"
+                        android:orientation="vertical">
+
+                        <TextView android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:orientation="vertical"
+                            android:text="9:16 AM"
+                            android:textColor="@color/black"
+                            android:layout_marginBottom="@dimen/fivezero_dp"/>
+
+                        <TextView android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:orientation="vertical"
+                            android:text="9:24 AM"
+                            android:textColor="@color/black"
+                            android:layout_marginBottom="@dimen/fivezero_dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

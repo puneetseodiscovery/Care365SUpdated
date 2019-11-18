@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="270dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/bg_add_photo_dialog"
+    android:paddingBottom="@dimen/threezero_dp"
+    android:layout_margin="@dimen/twofive_dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/enter_otp"
+            android:textSize="17dp"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+
+    <com.chaos.view.PinView
+        android:id="@+id/pv_otp"
+        style="@style/PinWidget.PinView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:cursorVisible="true"
+        android:gravity="center"
+        android:hint="****"
+        android:inputType="text"
+        android:itemBackground="@drawable/bg_round_rect_bordered"
+        android:paddingTop="@dimen/five_dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:cursorColor="@color/black"
+        app:cursorWidth="2dp"
+        app:hideLineWhenFilled="true"
+        app:itemCount="4"
+        app:itemHeight="45dp"
+        app:itemRadius="4dp"
+        app:itemSpacing="3dp"
+        app:itemWidth="45dp"
+        app:lineColor="@color/white"
+        app:lineWidth="2dp"
+        app:viewType="none"
+        android:layout_marginTop="@dimen/onefive_dp"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:text="@string/submit"
+        android:id="@+id/btn_submit_otp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:onClick="onOTPSubmittted"
+        android:layout_height="@dimen/fivezero_dp"
+        android:paddingLeft="@dimen/fourzero_dp"
+        android:paddingRight="@dimen/fourzero_dp"
+        android:layout_marginTop="@dimen/twozero_dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bg_rect_solid_rounded"
+        android:backgroundTint="@color/colorAccent"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv_resend_Otp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:text="@string/resend_otp"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="@dimen/ten_dp"
+        android:layout_margin="@dimen/ten_dp"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login.LoginActivity"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorAccent"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/sp_bld_grp_signup"
+            android:textSize="17sp"
+            android:text=""
+            android:paddingTop="@dimen/five_dp"
+            android:paddingBottom="@dimen/five_dp"
+            android:paddingLeft="@dimen/threezero_dp"
+            android:layout_margin="@dimen/ten_dp"
+            android:backgroundTint="@color/white"
+            android:background="@drawable/bg_rect_solid_rounded"
+            android:textColor="@color/black"
+            android:textCursorDrawable="@null"
+            android:imeOptions="actionNext"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".user.homeScreen.bottomFragments.SettingsFragment"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/onefive_dp">
+
+            <TextView
+                android:id="@+id/tv_notification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/notification_icon"
+                android:drawableRight="@mipmap/frwd_arrow_icon"
+                android:drawablePadding="@dimen/onefive_dp"
+                android:text="@string/notifications"
+                android:padding="@dimen/ten_dp"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:gravity=""/>
+
+            <View android:layout_height="2dp"
+                android:layout_width="wrap_content"
+                android:background="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_edit_circle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/settings_circle_icon"
+                android:drawableRight="@mipmap/frwd_arrow_icon"
+                android:drawablePadding="@dimen/onefive_dp"
+                android:text="@string/edit_circle"
+                android:padding="@dimen/ten_dp"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:gravity=""/>
+
+            <View android:layout_height="2dp"
+                android:layout_width="wrap_content"
+                android:background="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/user_account_icon"
+                android:drawableRight="@mipmap/frwd_arrow_icon"
+                android:drawablePadding="@dimen/onefive_dp"
+                android:text="@string/account"
+                android:padding="@dimen/ten_dp"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:gravity=""/>
+
+            <View android:layout_height="2dp"
+                android:layout_width="wrap_content"
+                android:background="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/logout_icon"
+                android:drawableRight="@mipmap/frwd_arrow_icon"
+                android:drawablePadding="@dimen/onefive_dp"
+                android:text="@string/logout"
+                android:padding="@dimen/ten_dp"
+
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <View android:layout_height="2dp"
+                android:layout_width="wrap_content"
+                android:background="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_contact_us"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/settings_phone_icon"
+                android:drawableRight="@mipmap/frwd_arrow_icon"
+                android:drawablePadding="@dimen/onefive_dp"
+                android:text="@string/contact_us"
+                android:padding="@dimen/onefive_dp"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <View android:layout_height="2dp"
+                android:layout_width="wrap_content"
+                android:background="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_privacy_policy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/privacy_policy_icon"
+                android:drawableRight="@mipmap/frwd_arrow_icon"
+                android:drawablePadding="@dimen/onefive_dp"
+                android:text="@string/privacy_policy"
+                android:padding="@dimen/onefive_dp"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <View android:layout_height="2dp"
+                android:layout_width="wrap_content"
+                android:background="@color/black"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

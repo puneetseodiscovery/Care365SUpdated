@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login.LoginActivity"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorAccent"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:text=""
+            android:padding="@dimen/five_dp"
+            android:textSize="19sp"
+            android:layout_marginLeft="@dimen/twozero_dp"
+            android:layout_marginRight="@dimen/twozero_dp"
+            android:background="@drawable/bg_rect_solid_rounded"
+            android:textColor="@color/black" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/twozero_dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                app:srcCompat="@mipmap/create_circle_icon" />
+
+
+            <TextView
+                android:id="@+id/tv_forgot_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/logo"
+                android:gravity="center"
+                android:layout_marginStart="@dimen/threetwo_dp"
+                android:layout_marginEnd="@dimen/threetwo_dp"
+                android:padding="@dimen/five_dp"
+                android:text="@string/choose_circle_name"
+                android:textColor="@color/black"
+                android:textSize="19sp"
+                android:layout_marginLeft="@dimen/threetwo_dp"
+                android:layout_marginBottom="@dimen/twozero_dp"/>
+
+            <View android:layout_height="2dp"
+                android:layout_width="wrap_content"
+                android:layout_above="@+id/tv_ptext"
+                android:background="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_ptext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:layout_below="@+id/tv_forgot_pass"
+                android:text="@string/suggestions"
+                android:padding="@dimen/ten_dp"
+                android:textColor="@color/white"
+                android:textSize="19sp" />
+
+            <View
+                android:id="@+id/v"
+                android:layout_height="2dp"
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/tv_ptext"
+                android:background="@color/black"/>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_circle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/v"/>
+
+
+
+
+        </RelativeLayout>
+
+
+
+    </ScrollView>
+
+
+</LinearLayout>

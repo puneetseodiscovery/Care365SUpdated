@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorAccent">
+
+        <RelativeLayout
+            android:id="@+id/iv_back"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:onClick="onBackClicked">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/header_back_icon" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:text="@string/delete_account"
+            android:textSize="19sp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="260dp"
+        android:orientation="vertical"
+        android:background="@drawable/bg_add_photo_dialog"
+        android:paddingBottom="@dimen/threezero_dp"
+        android:layout_margin="@dimen/onefive_dp"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/tv_access_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/delete_acc_info"
+            android:layout_marginLeft="@dimen/ten_dp"
+            android:textSize="15dp"
+            android:layout_marginTop="@dimen/threetwo_dp"
+            android:paddingLeft="@dimen/twozero_dp"
+            android:paddingRight="@dimen/twozero_dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:text="@string/yes"
+            android:id="@+id/btn_yes"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:onClick="onAllowAccessClicked"
+            android:layout_height="@dimen/fivezero_dp"
+            android:layout_below="@+id/et_signup_cfrm_pass"
+            android:paddingLeft="@dimen/fourzero_dp"
+            android:paddingRight="@dimen/fourzero_dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/twozero_dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/bg_rect_solid_rounded"
+            android:backgroundTint="@color/colorPrimaryDark" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:text="@string/no"
+            android:id="@+id/btn_no"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:onClick="onAllowAccessClicked"
+            android:layout_height="@dimen/fivezero_dp"
+            android:layout_below="@+id/et_signup_cfrm_pass"
+            android:paddingLeft="@dimen/fourzero_dp"
+            android:paddingRight="@dimen/fourzero_dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/twozero_dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/bg_rect_solid_rounded"
+            android:backgroundTint="@color/colorAccent" />
+
+    </LinearLayout>
+</LinearLayout>

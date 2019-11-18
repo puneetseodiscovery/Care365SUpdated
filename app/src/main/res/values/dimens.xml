@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="five_dp">5dp</dimen>
+    <dimen name="ten_dp">10dp</dimen>
+    <dimen name="onefive_dp">15dp</dimen>
+    <dimen name="twozero_dp">20dp</dimen>
+    <dimen name="twofive_dp">25dp</dimen>
+    <dimen name="threezero_dp">30dp</dimen>
+    <dimen name="threetwo_dp">32dp</dimen>
+    <dimen name="fourzero_dp">40dp</dimen>
+    <dimen name="fivezero_dp">50dp</dimen>
+    <dimen name="sixzero_dp">60dp</dimen>
+    <dimen name="sevenzero_dp">70dp</dimen>
+    <dimen name="onetwozero_dp">120dp</dimen>
+    <dimen name="onefivezero_dp">150dp</dimen>
+    <dimen name="onesixzero_dp">160dp</dimen>
+    <dimen name="twofivezero_dp">250dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+</resources>

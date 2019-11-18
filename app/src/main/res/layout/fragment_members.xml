@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/parent_container">
+
+    <!--main content-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fl_map">
+
+            <!--<fragment-->
+                <!--android:name="com.google.android.gms.maps.SupportMapFragment"-->
+                <!--android:id="@+id/frg"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent" />-->
+            <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:map="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/frg"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".MapsActivity" />
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/tv_circle"
+            android:textSize="17sp"
+            android:layout_marginStart="@dimen/threetwo_dp"
+            android:layout_marginLeft="@dimen/threetwo_dp"
+            android:layout_marginTop="@dimen/fivezero_dp"
+            android:layout_marginEnd="@dimen/threetwo_dp"
+            android:backgroundTint="@color/white"
+            android:background="@drawable/bg_rect_solid_rounded"
+            android:drawableRight="@mipmap/arrow_down_icon"
+            android:drawablePadding="@dimen/ten_dp"
+            android:paddingLeft="@dimen/twofive_dp"
+            android:paddingRight="@dimen/ten_dp"
+            android:textColor="@color/black"
+            android:textCursorDrawable="@null"
+            android:imeOptions="actionNext"
+            android:gravity="center_vertical"/>
+    </RelativeLayout>
+
+    <!--<include layout="@layout/persistent_bottomsheet"/>-->
+
+    <!--bottomsheet content-->
+    <RelativeLayout
+        android:id="@+id/main_bottomsheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="true"
+        app:layout_behavior="com.careS365.home.bottomFragments.homeBottomsheetControl.BottomSheetBehavior">
+
+        <View android:layout_height="2dp"
+            android:layout_width="wrap_content"
+            android:background="@color/black"
+            android:layout_above="@+id/bottomsheet_title"/>
+
+        <RelativeLayout
+            android:id="@+id/bottomsheet_title"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/white">
+
+            <RelativeLayout
+                android:id="@+id/bottomsheet_trigger"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_bottom_sheet"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/activity_vertical_margin"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    app:srcCompat="@mipmap/bottom_sheet_icon" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/iv_add_member"
+                android:layout_width="?attr/actionBarSize"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                app:srcCompat="@drawable/add_member_icon"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+
+        <View android:layout_height="2dp"
+            android:layout_width="wrap_content"
+            android:background="@color/black"
+            android:layout_below="@+id/bottomsheet_title"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/bottomsheet_title"
+            android:orientation="horizontal">
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/btm_recyclerview_right"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/bg_notification_alert"></androidx.recyclerview.widget.RecyclerView>
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

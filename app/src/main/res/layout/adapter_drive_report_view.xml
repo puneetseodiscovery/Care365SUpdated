@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="1dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/ll_circle_view_item"
+            android:layout_marginTop="@dimen/twozero_dp">
+
+            <View android:layout_height="2dp"
+                android:layout_width="wrap_content"
+                android:background="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_day"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Earlier Today"
+                android:textSize="19sp"
+                android:gravity="center"
+                android:background="@color/bg_notification_alert"
+                android:textColor="@color/black"
+                android:padding="@dimen/ten_dp"/>
+
+            <View android:layout_height="2dp"
+                android:layout_width="wrap_content"
+                android:background="@color/black"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/ten_dp">
+
+
+                <ImageView
+                    android:id="@+id/iv_profile_pic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    map:srcCompat="@mipmap/drive_location_icon"
+                    android:layout_marginLeft="@dimen/ten_dp"
+                    android:scaleType="centerCrop" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_location_stay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="717,Chandi path,sector 31A, Chandigarh, India"
+                        android:textSize="17sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/twozero_dp"
+                        android:textColor="@color/black">
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/tv_location_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="8:08 PM - 9:12 PM (1hr 31min)"
+                        android:textSize="17sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/twozero_dp"
+                        android:textColor="@color/add_photo_dialog_color">
+                    </TextView>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View android:layout_height="2dp"
+                android:layout_width="wrap_content"
+                android:background="@color/black"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/ten_dp">
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    map:srcCompat="@mipmap/drive_car_icon"
+                    android:layout_marginLeft="@dimen/ten_dp"
+                    android:scaleType="centerCrop" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_drive_distance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 Mile drive"
+                        android:textSize="17sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/twozero_dp"
+                        android:textColor="@color/black">
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/tv_drive_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="9:16 PM - 9:24 PM (7min)"
+                        android:textSize="17sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/twozero_dp"
+                        android:textColor="@color/add_photo_dialog_color">
+                    </TextView>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <!-- MapView in lite mode. Note that it needs to be initialised
+         programmatically before it can be used. -->
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/lite_listrow_map"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                map:liteMode="true"
+                map:mapType="none" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

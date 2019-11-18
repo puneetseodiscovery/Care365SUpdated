@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login.LoginActivity"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorAccent"
+        android:layout_gravity="center">
+
+        <RelativeLayout
+            android:id="@+id/iv_back"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:onClick="onBackClicked">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/header_back_icon" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:text="@string/edit_circle"
+            android:textSize="19sp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".user.homeScreen.bottomFragments.SettingsFragment"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/onefive_dp">
+
+            <LinearLayout
+                android:id="@+id/tv_edit_circle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/settings_circle_icon"
+                    android:drawableRight="@mipmap/frwd_arrow_icon"
+                    android:drawablePadding="@dimen/onefive_dp"
+                    android:text="@string/edit_circle_name"
+                    android:padding="@dimen/ten_dp"
+                    android:textColor="@color/black"
+                    android:onClick="OnEditCircleNameClciked"
+                    android:textSize="17sp"
+                    android:gravity=""/>
+
+                <View android:layout_height="2dp"
+                    android:layout_width="wrap_content"
+                    android:background="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tv_add_circle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/edit_circle_members_icon"
+                    android:drawableRight="@mipmap/frwd_arrow_icon"
+                    android:drawablePadding="@dimen/onefive_dp"
+                    android:text="@string/add_circle_members"
+                    android:padding="@dimen/ten_dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:onClick="OnAddCircleMemeberClicked"
+                    android:gravity=""/>
+
+                <View android:layout_height="2dp"
+                    android:layout_width="wrap_content"
+                    android:background="@color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tv_delete_circle_member"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/delete_icon"
+                    android:drawableRight="@mipmap/frwd_arrow_icon"
+                    android:drawablePadding="@dimen/onefive_dp"
+                    android:text="@string/delete_circle_members"
+                    android:padding="@dimen/ten_dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:onClick="onDeleteCircleMemberClicked"
+                    android:gravity="center_vertical"/>
+
+                <View android:layout_height="2dp"
+                    android:layout_width="wrap_content"
+                    android:background="@color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tv_leave_circle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/leave_circle_icon"
+                    android:drawableRight="@mipmap/frwd_arrow_icon"
+                    android:drawablePadding="@dimen/onefive_dp"
+                    android:text="@string/leave_circle"
+                    android:padding="@dimen/ten_dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:onClick="onLeaveCircleClciked"/>
+
+                <View android:layout_height="2dp"
+                    android:layout_width="wrap_content"
+                    android:background="@color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tv_delete_circle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/delete_icon"
+                    android:drawableRight="@mipmap/frwd_arrow_icon"
+                    android:drawablePadding="@dimen/onefive_dp"
+                    android:text="@string/delete_circle"
+                    android:padding="@dimen/ten_dp"
+                    android:textColor="@color/black"
+                    android:onClick="OnDeleteCircleClicked"
+                    android:textSize="17sp"
+                    android:gravity=""/>
+
+                <View android:layout_height="2dp"
+                    android:layout_width="wrap_content"
+                    android:background="@color/black"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
