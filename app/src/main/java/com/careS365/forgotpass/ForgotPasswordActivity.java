@@ -34,7 +34,6 @@ import butterknife.ButterKnife;
 
 public class ForgotPasswordActivity extends BaseClass implements IForgotPasswordActivity {
 
-
     @BindView(R.id.tv_forgot_pass)
     TextView tvForgotPass;
     @BindView(R.id.tv_enter_your_mobile)
@@ -55,6 +54,7 @@ public class ForgotPasswordActivity extends BaseClass implements IForgotPassword
     String phoneNumber = "", email = "";
     Context context;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,25 +74,15 @@ public class ForgotPasswordActivity extends BaseClass implements IForgotPassword
     }
 
     public void onBackClicked(View view) {
-        startActivity(new Intent(this, LoginActivity.class));
+        finish();
     }
 
     public void onContinueClicked(View view) {
-        String EMAIL_PATTERN =
-                "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-
-        String validNumber = "^[+]?[0-9]{8,15}$";
-
         if (Utility.isNetworkConnected(this)) {
             if (et_email.getText().toString().trim().isEmpty()) {
                 et_email.setError("Enter email ");
-            } else if (!et_email.getText().toString().trim().matches(EMAIL_PATTERN)) {
-                et_email.setError("Enter valid email ");
             } else if (et_phone_number.getText().toString().trim().isEmpty()) {
                 et_phone_number.setError("Enter phone number ");
-            } else if (!et_phone_number.getText().toString().trim().matches(validNumber)) {
-                et_phone_number.setError("Enter valid phone number ");
             } else {
                 if (Utility.isNetworkConnected(context)) {
                     progressDialog = Utility.showLoader(context);
@@ -128,7 +118,8 @@ public class ForgotPasswordActivity extends BaseClass implements IForgotPassword
     @Override
     public void onForgotPassVerifyOTPSuccessFromPresenterToActivity(ForgotPassVerifyOTPResponseModel forgotPassVerifyOTPResponseModel) {
         progressDialog.dismiss();
-        startActivity(new Intent(ForgotPasswordActivity.this, ResetPasswordActivity.class).putExtra("userId", forgotPassVerifyOTPResponseModel.getData().getId()));
+        String get_User_ID = forgotPassVerifyOTPResponseModel.getData().getId();
+        startActivity(new Intent(ForgotPasswordActivity.this, ResetPasswordActivity.class).putExtra("get_User_ID", get_User_ID));
     }
 
     @Override
@@ -185,7 +176,6 @@ public class ForgotPasswordActivity extends BaseClass implements IForgotPassword
                 }
             }
         });
-
         otpDialog.show();
     }
 }

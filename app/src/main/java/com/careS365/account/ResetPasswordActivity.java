@@ -28,10 +28,9 @@ public class ResetPasswordActivity extends BaseClass implements IResetPasswordAc
     EditText etCnfrmPass;
     @BindView(R.id.btn_continue)
     Button btnContinue;
-
     IPResetPasswordActivity ipResetPasswordActivity;
     ProgressDialog progressDialog;
-    String userId;
+    String get_User_ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,16 +38,11 @@ public class ResetPasswordActivity extends BaseClass implements IResetPasswordAc
         setContentView(R.layout.activity_reset_password);
         ButterKnife.bind(this);
         ipResetPasswordActivity = new PResetPasswordActivity(this);
-        userId = Utility.getUserId();
-        Log.d("data++++", "" + userId);
-
+        get_User_ID = getIntent().getStringExtra("get_User_ID");
     }
 
     public void onBackClicked(View view) {
-        //startActivity(new Intent(this, HomeScreenActivity.class));
-        /*Intent intent = new Intent(this, AccountActivity.class);
-        startActivity(intent);*/
-        super.onBackPressed();
+        finish();
     }
 
     public void onConitnueClicked(View view) {
@@ -56,7 +50,7 @@ public class ResetPasswordActivity extends BaseClass implements IResetPasswordAc
             if (etNewPass.getText().toString().length() > 0 && etCnfrmPass.getText().toString().length() > 0) {
                 if (etNewPass.getText().toString().equals(etCnfrmPass.getText().toString())) {
                     progressDialog = Utility.showLoader(this);
-                    ipResetPasswordActivity.resetPassword(etNewPass.getText().toString(), etCnfrmPass.getText().toString(), userId);
+                    ipResetPasswordActivity.resetPassword(etNewPass.getText().toString(), etCnfrmPass.getText().toString(), get_User_ID);
                 } else {
                     Toast.makeText(this, "New Password and Confirm Password should be same.", Toast.LENGTH_SHORT).show();
                 }

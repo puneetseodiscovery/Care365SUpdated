@@ -139,7 +139,7 @@
     <string name="title_activity_complete_maps">Map</string>
 
     <!-- OTP DIALOG STRINGS -->
-    <string name="enter_otp">Please fill the otp, you got at your entered email number.</string>
+    <string name="enter_otp">Please fill the otp, you got at your entered email address.</string>
     <string name="resend_otp">Resend OTP?</string>
     <string name="title_activity_maps">Map</string>
     <string name="no_internet">No internet connection. please check your internet setting.</string>

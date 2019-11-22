@@ -81,7 +81,6 @@ public class HomeActivity extends BaseClass implements GoogleApiClient.Connectio
         //firebaseUsername = String.valueOf(Utility.getUserId());
     }
 
-
     private boolean isGpsOn() {
 
         boolean isGpsOn = false;
@@ -91,11 +90,9 @@ public class HomeActivity extends BaseClass implements GoogleApiClient.Connectio
             isGpsOn = false;
 
         } else {
-
             isGpsOn = true;
 
         }
-
         return isGpsOn;
     }
 
@@ -185,7 +182,6 @@ public class HomeActivity extends BaseClass implements GoogleApiClient.Connectio
             showGPSDisabledAlertToUser();
         }
     }
-
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {

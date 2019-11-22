@@ -53,7 +53,7 @@ public class AccountActivity extends BaseClass implements IAccountActivity {
     IPAccountActivity ipAccountActivity;
     ProgressDialog progressDialog;
     Context context;
-
+    String get_User_ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +62,7 @@ public class AccountActivity extends BaseClass implements IAccountActivity {
         ButterKnife.bind(this);
         context = AccountActivity.this;
         ipAccountActivity = new PAccountActivity(this);
+        get_User_ID=Utility.getUserId();
         if (Utility.getUserImage().isEmpty() && Utility.getUserImage() == null) {
             Glide.with(context).load(R.drawable.ic_launcher_background)
                     .error(R.drawable.ic_launcher_background).into(profilePic);
@@ -183,6 +184,7 @@ public class AccountActivity extends BaseClass implements IAccountActivity {
 
     public void onChangePasswordClicked(View view) {
         Intent intent = new Intent(this, ResetPasswordActivity.class);
+        intent.putExtra("get_User_ID",get_User_ID);
         startActivity(intent);
     }
 
