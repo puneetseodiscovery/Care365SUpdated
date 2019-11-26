@@ -126,4 +126,6 @@ public class CreateCircleFragment extends Fragment {
         //calling a method of the adapter class and passing the filtered list
         adapter.filterList(filterdCircles);
     }
+
+
 }

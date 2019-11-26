@@ -37,6 +37,7 @@ public class CreateCircleAdapter extends RecyclerView.Adapter<CreateCircleAdapte
     ProgressDialog progressDialog;
     IPCreateCircleAdapter ipCreateCircleAdapter;
 
+
     public CreateCircleAdapter(Context context, ArrayList<BeanCreateCircle> list) {
         this.context = context;
         this.list = list;

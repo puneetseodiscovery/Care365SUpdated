@@ -553,5 +553,15 @@ public class MembersFragment extends Fragment implements IMembersFragment {
         progressDialog.dismiss();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
 
+        if (Constants.SELECTED_CIRCLE.equals("")) {
+            tvCircle.setText("Select Circle");
+        } else {
+            tvCircle.setText(Constants.circlesHashmap.get(Constants.SELECTED_CIRCLE));
+        }
+
+    }
 }

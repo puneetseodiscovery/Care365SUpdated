@@ -44,6 +44,7 @@
 
 
     <string name="maps_key">AIzaSyCthFyf7q4YxajwfAhE3wNkrSjKRKcGrn4</string>
+    <string name="google_maps_key">AIzaSyC2ZME84lOf8mjBRLOkdMEdeIEU3-xp0Tw</string>
 
     <!-- HOME SCREEN STRINGS -->
     <string name="title_activity_home">HomeActivity</string>

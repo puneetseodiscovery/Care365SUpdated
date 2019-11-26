@@ -36,6 +36,7 @@ public class EditCircleActivity extends BaseClass {
     }
 
     private void init() {
+
         for(int i=0;i< Constants.getCirclesResponseModel.getData().size();i++){
             if(Constants.SELECTED_CIRCLE.equals(Constants.getCirclesResponseModel.getData().get(i).getId())
                     && Utility.getUserId().equals(Constants.getCirclesResponseModel.getData().get(i).getCreatedBy())){

@@ -38,9 +38,16 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
+
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+
+
+      <!--  <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCW9RDk-bZPJ42TkV_Aa3k46UKZ-3ggsj8" />-->
 
         <activity
             android:name="com.careS365.MapsActivity"
@@ -149,8 +156,9 @@
 
                 <data
                     android:host="care365.page.link"
-                    android:scheme="https" />
+                    android:scheme="https"/>
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

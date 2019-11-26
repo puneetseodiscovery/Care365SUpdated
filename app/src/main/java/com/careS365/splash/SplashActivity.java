@@ -1,8 +1,10 @@
 package com.careS365.splash;
 
 import android.Manifest;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Bundle;
@@ -66,9 +68,9 @@ public class SplashActivity extends BaseClass {
                             Intent mainIntent = new Intent(SplashActivity.this, WelcomeActivity.class);
                             SplashActivity.this.startActivity(mainIntent);
                             SplashActivity.this.finish();
+
                         }
 
-                        //startActivity(new Intent(SplashActivity.this, StartPaymentActivity.class));
                     }
                 }, 1000);
             }
@@ -81,6 +83,40 @@ public class SplashActivity extends BaseClass {
         });
     }
 
+    private boolean appinstalledOrNot(String uri) {
+        PackageManager pm = getPackageManager();
+        boolean app_installed = false;
+        try {
+            pm.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
+            app_installed = true;
+        } catch (PackageManager.NameNotFoundException e) {
+            app_installed = false;
+        }
+        return app_installed;
+    }
+
+    public static boolean openApp(Context context, String packageName) {
+        PackageManager manager = context.getPackageManager();
+        try {
+            Intent i = manager.getLaunchIntentForPackage(packageName);
+            if (i == null) {
+                return false;
+                //throw new ActivityNotFoundException();
+            }
+            i.addCategory(Intent.CATEGORY_LAUNCHER);
+            context.startActivity(i);
+            return true;
+        } catch (ActivityNotFoundException e) {
+            return false;
+        }
+    }
+
+    public static void launchPlayStoreWithAppPackage(Context context, String packageName) {
+        Intent i = new Intent(android.content.Intent.ACTION_VIEW);
+        i.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.careS365&hl=en_IN" + packageName));
+        context.startActivity(i);
+    }
+
     private int receiveFirebaseDynamicLink() {
         FirebaseDynamicLinks.getInstance()
                 .getDynamicLink(getIntent())
@@ -90,6 +126,7 @@ public class SplashActivity extends BaseClass {
 // Get deep link from result (may be null if no link is found)
                         Uri deepLink = null;
                         if (pendingDynamicLinkData != null) {
+
                             deepLink = pendingDynamicLinkData.getLink();
                             Constants.inviteCode = deepLink.toString().substring(deepLink.toString().indexOf('=') + 1, deepLink.toString().indexOf('&'));
                             Constants.invitedBy = deepLink.toString().substring(deepLink.toString().indexOf('&') + 8, deepLink.toString().lastIndexOf('&'));

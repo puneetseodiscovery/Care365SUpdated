@@ -8,19 +8,20 @@
 
     <!--main content-->
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <FrameLayout
+            android:id="@+id/fl_map"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/fl_map">
+            android:layout_height="match_parent">
 
             <!--<fragment-->
-                <!--android:name="com.google.android.gms.maps.SupportMapFragment"-->
-                <!--android:id="@+id/frg"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent" />-->
+            <!--android:name="com.google.android.gms.maps.SupportMapFragment"-->
+            <!--android:id="@+id/frg"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent" />-->
             <fragment xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:map="http://schemas.android.com/apk/res-auto"
                 xmlns:tools="http://schemas.android.com/tools"
@@ -33,24 +34,24 @@
         </FrameLayout>
 
         <TextView
+            android:id="@+id/tv_circle"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:id="@+id/tv_circle"
-            android:textSize="17sp"
             android:layout_marginStart="@dimen/threetwo_dp"
             android:layout_marginLeft="@dimen/threetwo_dp"
             android:layout_marginTop="@dimen/fivezero_dp"
             android:layout_marginEnd="@dimen/threetwo_dp"
-            android:backgroundTint="@color/white"
             android:background="@drawable/bg_rect_solid_rounded"
+            android:backgroundTint="@color/white"
             android:drawableRight="@mipmap/arrow_down_icon"
             android:drawablePadding="@dimen/ten_dp"
+            android:gravity="center_vertical"
+            android:imeOptions="actionNext"
             android:paddingLeft="@dimen/twofive_dp"
             android:paddingRight="@dimen/ten_dp"
             android:textColor="@color/black"
             android:textCursorDrawable="@null"
-            android:imeOptions="actionNext"
-            android:gravity="center_vertical"/>
+            android:textSize="17sp" />
     </RelativeLayout>
 
     <!--<include layout="@layout/persistent_bottomsheet"/>-->
