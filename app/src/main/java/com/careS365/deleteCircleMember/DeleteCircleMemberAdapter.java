@@ -1,8 +1,10 @@
 package com.careS365.deleteCircleMember;
 
 import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,13 +14,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.careS365.R;
+import com.careS365.responseModel.GetCircleMembersResponseModel;
+import com.careS365.util.Constants;
 import com.careS365.util.Utility;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class DeleteCircleMemberAdapter extends RecyclerView.Adapter<DeleteCircleMemberAdapter.ViewHolder> {
 
@@ -26,6 +32,7 @@ public class DeleteCircleMemberAdapter extends RecyclerView.Adapter<DeleteCircle
     ArrayList<BeanDeleteCircleMember> list;
     ArrayList<String> selectedUsers = new ArrayList<>();
     String selectedUsersForDel;
+    List<GetCircleMembersResponseModel.Datum> data;
 
     public DeleteCircleMemberAdapter(Context context, ArrayList<BeanDeleteCircleMember> list) {
         this.context = context;
@@ -41,31 +48,28 @@ public class DeleteCircleMemberAdapter extends RecyclerView.Adapter<DeleteCircle
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        if(!list.get(position).getPersonImg().equals(""))
-            Picasso.get().load(list.get(position).getPersonImg()).into(holder.ivProfilePic);
-        // holder.ivCat.setImageResource(list.get(position).getServiceImage());
+        if (!list.get(position).getPersonImg().equals("") && list.get(position).getPersonImg() != null) {
+            Picasso.get().load(Constants.IMAGE_URL + list.get(position).getPersonImg()).into(holder.ivProfilePic);
+        } else {
+
+            //Picasso.get().load(list.get(position).getPersonImg()).error(R.mipmap.messages_profile_pic).into(holder.ivProfilePic);
+        }
         holder.tvName.setText(list.get(position).getPersonName());
 
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     selectedUsers.add(list.get(position).getPersonId());
                 } else {
                     selectedUsers.remove(list.get(position).getPersonId());
                 }
                 selectedUsersForDel = selectedUsers.toString().replace("[", "").replace("]", "")
-                        .replace(", ", ",");;
-
-                ((DeleteCircleMemberActivity)context).getSelectedMembers(selectedUsersForDel);
+                        .replace(", ", ",");
+                ((DeleteCircleMemberActivity) context).getSelectedMembers(selectedUsersForDel);
+                notifyItemChanged(position);
             }
         });
-        /*holder.llCircleItem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //loadFragment(list.get(position).getServiceName(),list.get(position).getId());
-            }
-        });*/
     }
 
     @Override
@@ -76,12 +80,13 @@ public class DeleteCircleMemberAdapter extends RecyclerView.Adapter<DeleteCircle
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.iv_profile_pic)
-        ImageView ivProfilePic;
+        CircleImageView ivProfilePic;
+
         @BindView(R.id.tv_name)
         TextView tvName;
+
         @BindView(R.id.checkbox)
         CheckBox checkBox;
-
 
 
         public ViewHolder(View view) {

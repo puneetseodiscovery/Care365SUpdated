@@ -48,9 +48,7 @@ public class DeleteCircleMemberActivity extends BaseClass implements IDeleteCirc
         } else {
             Toast.makeText(this, "Check your internet connection !!!", Toast.LENGTH_SHORT).show();
         }
-        rvDeleteCircleMember.setLayoutManager(new LinearLayoutManager(this));
-        DeleteCircleMemberAdapter adapter = new DeleteCircleMemberAdapter(this, arrayList);
-        rvDeleteCircleMember.setAdapter(adapter);
+
     }
 
     public void onBackClicked(View view) {
@@ -77,9 +75,14 @@ public class DeleteCircleMemberActivity extends BaseClass implements IDeleteCirc
     @Override
     public void getCircleMembersSuccessFromPresenterToActivity(GetCircleMembersResponseModel getCircleMembersResponseModel) {
         progressDialog.dismiss();
+
         for (int i = 0; i < getCircleMembersResponseModel.getData().size(); i++) {
-            arrayList.add(new BeanDeleteCircleMember(getCircleMembersResponseModel.getData().get(i).getUserId(), "", getCircleMembersResponseModel.getData().get(i).getUserId()));
+            arrayList.add(new BeanDeleteCircleMember(getCircleMembersResponseModel.getData().get(i).getUserId(), getCircleMembersResponseModel.getData().get(i).getImage(), getCircleMembersResponseModel.getData().get(i).getFullName()));
         }
+        rvDeleteCircleMember.setLayoutManager(new LinearLayoutManager(this));
+        DeleteCircleMemberAdapter adapter = new DeleteCircleMemberAdapter(this, arrayList);
+        rvDeleteCircleMember.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -91,6 +94,8 @@ public class DeleteCircleMemberActivity extends BaseClass implements IDeleteCirc
     @Override
     public void deleteCircleMembersSuccessFromPresenterToActivity(DeleteCircleMembersResponseModel deleteCircleMembersResponseModel) {
         progressDialog.dismiss();
+        String message = deleteCircleMembersResponseModel.getMessage();
+        Toast.makeText(this, "" + message, Toast.LENGTH_SHORT).show();
     }
 
     @Override

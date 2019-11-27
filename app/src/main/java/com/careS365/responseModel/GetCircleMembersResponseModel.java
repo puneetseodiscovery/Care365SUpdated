@@ -6,7 +6,6 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class GetCircleMembersResponseModel {
-
     @SerializedName("status")
     @Expose
     private Integer status;
@@ -49,6 +48,9 @@ public class GetCircleMembersResponseModel {
         @SerializedName("full_name")
         @Expose
         private String fullName;
+        @SerializedName("image")
+        @Expose
+        private String image;
 
         public String getUserId() {
             return userId;
@@ -66,6 +68,13 @@ public class GetCircleMembersResponseModel {
             this.fullName = fullName;
         }
 
+        public String getImage() {
+            return image;
+        }
+
+        public void setImage(String image) {
+            this.image = image;
+        }
     }
 
 }

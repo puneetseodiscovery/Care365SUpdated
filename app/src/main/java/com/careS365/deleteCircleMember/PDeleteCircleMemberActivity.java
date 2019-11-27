@@ -30,7 +30,7 @@ public class PDeleteCircleMemberActivity implements IPDeleteCircleMemberActivity
 
     @Override
     public void deleteCircleMembers(String selectedCircle, String userId, String selectedUsers) {
-        imDeleteCircleMemberActivity.deleteCircleMembers(selectedCircle,userId,selectedUsers);
+        imDeleteCircleMemberActivity.deleteCircleMembers(selectedCircle, userId, selectedUsers);
     }
 
     @Override
