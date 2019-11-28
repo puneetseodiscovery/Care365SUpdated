@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="VLF"
+                android:text=""
                 android:gravity="center"
                 android:textSize="25dp"
                 android:textStyle="bold"/>
@@ -103,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="CXZ"
+                android:text=""
                 android:gravity="center"
                 android:textSize="25dp"
                 android:textStyle="bold"/>

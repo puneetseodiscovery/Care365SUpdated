@@ -121,7 +121,7 @@
                 android:paddingTop="@dimen/ten_dp"
                 android:paddingRight="@dimen/ten_dp"
                 android:textSize="17sp"
-                android:inputType="text"
+                android:inputType="phone"
                 android:imeOptions="actionNext"/>
 
             <EditText

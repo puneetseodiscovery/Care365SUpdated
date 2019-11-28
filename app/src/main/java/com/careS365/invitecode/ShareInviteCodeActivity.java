@@ -30,8 +30,10 @@ public class ShareInviteCodeActivity extends BaseClass {
     TextView tvCircleName1;
     @BindView(R.id.et_circle_name2)
     TextView tvCircleName2;
-    String mInvitationUrl;
+    String myInvitationUrl="";
     String inviteCode;
+
+    Uri myInvCode;
 
     public static final int SHARE_INVITE_CODE = 1;
 
@@ -44,16 +46,18 @@ public class ShareInviteCodeActivity extends BaseClass {
         for (int i = 0; i < Constants.getCirclesResponseModel.getData().size(); i++) {
             if (Constants.SELECTED_CIRCLE.equals(Constants.getCirclesResponseModel.getData().get(i).getId())) {
                 tvCircleName1.setText(Constants.getCirclesResponseModel.getData().get(i).getInviteCode().substring(0, 3));
+                Log.d("circleName+++++",""+tvCircleName1.getText().toString());
                 tvCircleName2.setText(Constants.getCirclesResponseModel.getData().get(i).getInviteCode().substring(3, 6));
+                Log.d("circleName+++++",""+tvCircleName2.getText().toString());
             }
         }
 
         inviteCode = tvCircleName1.getText().toString() + tvCircleName2.getText().toString();
-        Log.e("invite code:", "" + inviteCode);
-        createDynamicLink();
+        Log.e("invitecode++++++++++++", "" + inviteCode);
+        createFrrebaseDynamicLick();
     }
-
-    private void createDynamicLink() {
+    // Firebase Deep Linking for get share code
+    private void createFrrebaseDynamicLick() {
 
         DynamicLink dynamicLink = FirebaseDynamicLinks.getInstance().createDynamicLink()
                 .setLink(Uri.parse("https://care365.page.link/?invitedCode=" + inviteCode + "&userId=" + Utility.getUserId() + "&circleId=" + Constants.SELECTED_CIRCLE))
@@ -65,24 +69,30 @@ public class ShareInviteCodeActivity extends BaseClass {
                 .buildDynamicLink();
 
         Uri dynamicLinkUri = dynamicLink.getUri();
+        Log.d("##############",""+dynamicLinkUri);
 
+        // [START shorten_long_link]
         Task<ShortDynamicLink> shortLinkTask = FirebaseDynamicLinks.getInstance().createDynamicLink()
-                .setLongLink(Uri.parse("https://" + dynamicLink.getUri().toString()))
+                .setLongLink(Uri.parse("https://"+dynamicLinkUri))
                 .buildShortDynamicLink()
-                .addOnCompleteListener(ShareInviteCodeActivity.this, new OnCompleteListener<ShortDynamicLink>() {
+                .addOnCompleteListener(this, new OnCompleteListener<ShortDynamicLink>() {
                     @Override
                     public void onComplete(@NonNull Task<ShortDynamicLink> task) {
                         if (task.isSuccessful()) {
                             // Short link created
                             Uri shortLink = task.getResult().getShortLink();
+                            Log.d("##############",""+shortLink);
                             Uri flowchartLink = task.getResult().getPreviewLink();
-                            mInvitationUrl = shortLink.toString();
-
+                            myInvCode=shortLink;
+                            Log.d("##############",""+myInvCode);
                         } else {
-
+                            // Error
+                            // ...
                         }
                     }
                 });
+        // [END shorten_long_link]
+
     }
 
     public void onBackClicked(View view) {
@@ -90,16 +100,28 @@ public class ShareInviteCodeActivity extends BaseClass {
     }
 
     public void onSendCodeClicked(View view) {
-
-        Intent share = new Intent(android.content.Intent.ACTION_SEND);
+        shareLink(myInvCode);
+       /* Intent share = new Intent(android.content.Intent.ACTION_SEND);
         share.setType("text/plain");
         share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
         // Add data to the intent, the receiving app will decide
         // what to do with it.
         share.putExtra(Intent.EXTRA_SUBJECT, "Title Of The Post");
         //share.putExtra(Intent.EXTRA_TEXT, "http://www.codeofaninja.com");
-        share.putExtra(Intent.EXTRA_TEXT, mInvitationUrl);
+        share.putExtra(Intent.EXTRA_TEXT, myInvitationUrl);
         startActivityForResult(Intent.createChooser(share, "Share link!"), SHARE_INVITE_CODE);
+*/
+    }
+
+    public void shareLink(Uri myDynamicLink) {
+        Log.d("##############",""+myDynamicLink);
+        Intent sendIntent = new Intent();
+        String msgCode = "Hey, check this out: " + myDynamicLink;
+        Log.d("##############",""+msgCode);
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, msgCode);
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
 
     }
 

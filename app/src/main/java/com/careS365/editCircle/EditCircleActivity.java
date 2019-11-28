@@ -37,12 +37,16 @@ public class EditCircleActivity extends BaseClass {
 
     private void init() {
 
-        for(int i=0;i< Constants.getCirclesResponseModel.getData().size();i++){
-            if(Constants.SELECTED_CIRCLE.equals(Constants.getCirclesResponseModel.getData().get(i).getId())
-                    && Utility.getUserId().equals(Constants.getCirclesResponseModel.getData().get(i).getCreatedBy())){
-                creatorOfCircle = true;
+        if (Constants.getCirclesResponseModel !=null){
+            for(int i=0;i< Constants.getCirclesResponseModel.getData().size();i++){
+                if(Constants.SELECTED_CIRCLE.equals(Constants.getCirclesResponseModel.getData().get(i).getId())
+                        && Utility.getUserId().equals(Constants.getCirclesResponseModel.getData().get(i).getCreatedBy())){
+                    creatorOfCircle = true;
+                }
             }
         }
+
+
         if(creatorOfCircle){
             tvEditCircle.setVisibility(View.VISIBLE);
             tvDeleteCircleMember.setVisibility(View.VISIBLE);

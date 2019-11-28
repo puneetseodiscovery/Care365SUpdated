@@ -13,6 +13,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.careS365.R;
 import com.careS365.responseModel.GetCircleMembersResponseModel;
 import com.careS365.util.Constants;
@@ -48,12 +49,15 @@ public class DeleteCircleMemberAdapter extends RecyclerView.Adapter<DeleteCircle
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        if (!list.get(position).getPersonImg().equals("") && list.get(position).getPersonImg() != null) {
-            Picasso.get().load(Constants.IMAGE_URL + list.get(position).getPersonImg()).into(holder.ivProfilePic);
-        } else {
 
-            //Picasso.get().load(list.get(position).getPersonImg()).error(R.mipmap.messages_profile_pic).into(holder.ivProfilePic);
+        String imageURL=list.get(position).getPersonImg();
+
+        if (list.get(position).getPersonImg()==null && list.get(position).getPersonImg().isEmpty() ){
+            Glide.with(context).load(imageURL).error(R.drawable.img_placeholder).into(holder.ivProfilePic);
+        }else {
+            Glide.with(context).load(imageURL).error(R.drawable.img_placeholder).into(holder.ivProfilePic);
         }
+
         holder.tvName.setText(list.get(position).getPersonName());
 
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -67,7 +71,6 @@ public class DeleteCircleMemberAdapter extends RecyclerView.Adapter<DeleteCircle
                 selectedUsersForDel = selectedUsers.toString().replace("[", "").replace("]", "")
                         .replace(", ", ",");
                 ((DeleteCircleMemberActivity) context).getSelectedMembers(selectedUsersForDel);
-                notifyItemChanged(position);
             }
         });
     }

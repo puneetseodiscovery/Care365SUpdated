@@ -83,6 +83,7 @@ public class DeleteCircleMemberActivity extends BaseClass implements IDeleteCirc
         DeleteCircleMemberAdapter adapter = new DeleteCircleMemberAdapter(this, arrayList);
         rvDeleteCircleMember.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+
     }
 
     @Override
@@ -103,4 +104,6 @@ public class DeleteCircleMemberActivity extends BaseClass implements IDeleteCirc
         progressDialog.dismiss();
         Toast.makeText(this, "" + message, Toast.LENGTH_SHORT).show();
     }
+
+
 }

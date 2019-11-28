@@ -7,8 +7,8 @@ android {
         applicationId "com.careS365"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 12
-        versionName "1.1.12"
+        versionCode 13
+        versionName "1.1.13"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
@@ -55,7 +55,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:17.0.1'
     implementation 'com.google.firebase:firebase-auth:18.1.0'
     implementation 'com.google.firebase:firebase-messaging:19.0.1'
+    //TODO for dynamic link
     implementation 'com.google.firebase:firebase-dynamic-links:19.0.0'
+    implementation 'com.google.firebase:firebase-analytics:17.2.1'
+
 
     implementation 'com.jakewharton:butterknife:10.0.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'

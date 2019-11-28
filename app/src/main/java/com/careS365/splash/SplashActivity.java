@@ -22,8 +22,10 @@ import com.careS365.invitecode.EnterInviteCodeActivity;
 import com.careS365.util.Constants;
 import com.careS365.util.PreferenceHandler;
 import com.careS365.welcome.WelcomeActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import com.google.firebase.dynamiclinks.PendingDynamicLinkData;
 import com.nabinbhandari.android.permissions.PermissionHandler;
@@ -36,51 +38,104 @@ public class SplashActivity extends BaseClass {
     String session;
     String[] permissions = {Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.INTERNET};
     //String inviteCode,invitedBy,invitedCircle;
-
+    String myInviteCode="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
         if (getIntent().getData() != null) {
-            receiveFirebaseDynamicLink();
+            getInvitation();
             Constants.movedThroughLink = "1";
+
         } else {
             Constants.movedThroughLink = "0";
-        }
-        Permissions.check(this/*context*/, permissions, null/*rationale*/, null/*options*/, new PermissionHandler() {
-            @Override
-            public void onGranted() {
-                //getDeviceToken();
-                // do your task.
-                startService(new Intent(SplashActivity.this, BaseFirebaseMessagingService.class));
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Log.e("+++++intent null:", "" + (getIntent().getData() == null));
-                        session = new PreferenceHandler().readString(MyApp.getInstance().getApplicationContext(), PreferenceHandler.PREF_KEY_LOGIN_AUTH_TOKEN, "");
-                        if (session.length() > 0) {
-                            if (Constants.movedThroughLink.equals("1"))
-                                startActivity(new Intent(SplashActivity.this, EnterInviteCodeActivity.class));
-                            else
-                                startActivity(new Intent(SplashActivity.this, HomeActivity.class));
-                        } else {
-                            Intent mainIntent = new Intent(SplashActivity.this, WelcomeActivity.class);
-                            SplashActivity.this.startActivity(mainIntent);
-                            SplashActivity.this.finish();
 
+        }
+
+            Permissions.check(this/*context*/, permissions, null/*rationale*/, null/*options*/, new PermissionHandler() {
+                @Override
+                public void onGranted() {
+                    //getDeviceToken();
+                    // do your task.
+                    startService(new Intent(SplashActivity.this, BaseFirebaseMessagingService.class));
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Log.e("+++++intent null:", "" + (getIntent().getData() == null));
+                            session = new PreferenceHandler().readString(MyApp.getInstance().getApplicationContext(), PreferenceHandler.PREF_KEY_LOGIN_AUTH_TOKEN, "");
+                            if (session.length() > 0) {
+                                if (Constants.movedThroughLink.equals("1")) {
+
+                                    startActivity(new Intent(SplashActivity.this, EnterInviteCodeActivity.class));
+
+                                }
+                                else{
+                                    startActivity(new Intent(SplashActivity.this, HomeActivity.class));
+                                }
+                            } else {
+
+
+                                Intent mainIntent = new Intent(SplashActivity.this, WelcomeActivity.class);
+                                SplashActivity.this.startActivity(mainIntent);
+                                SplashActivity.this.finish();
+                            }
                         }
+                    }, 1000);
+                }
+
+                @Override
+                public void onDenied(Context context, ArrayList<String> deniedPermissions) {
+                    super.onDenied(context, deniedPermissions);
+                    finishAffinity();
+                }
+            });
+
+    }
+    private int getInvitation() {
+
+        FirebaseDynamicLinks.getInstance()
+                .getDynamicLink(getIntent())
+                .addOnSuccessListener(this, new OnSuccessListener<PendingDynamicLinkData>() {
+                    @Override
+                    public void onSuccess(PendingDynamicLinkData pendingDynamicLinkData) {
+                        // Get deep link from result (may be null if no link is found)
+                        Uri deepLink = null;
+                        if (pendingDynamicLinkData != null) {
+
+                            deepLink = pendingDynamicLinkData.getLink();
+
+                            Log.e("SplashActivity", "deepLink " + deepLink);
+
+                            Constants.inviteCode = deepLink.toString().substring(deepLink.toString().indexOf('=') + 1, deepLink.toString().indexOf('&'));
+                            Constants.invitedBy = deepLink.toString().substring(deepLink.toString().indexOf('&') + 8, deepLink.toString().lastIndexOf('&'));
+                            //invitedBy = deepLink.toString().substring(deepLink.toString().lastIndexOf('=') + 1,deepLink.toString().lastIndexOf('&'));
+                            Constants.invitedCircle = deepLink.toString().substring(deepLink.toString().lastIndexOf('=') + 1);
+//                            code = deepLink.toString().substring(deepLink.toString().lastIndexOf('/') + 1);
+
+                            Log.d("+++++++link", "" + deepLink);
+                            Log.d("+++++++code", "" + Constants.inviteCode);
+                            Log.d("+++++++by", "" + Constants.invitedBy);
+                            Log.d("+++++++circle", "" + Constants.invitedCircle);
+                        }
+                    }
+                })
+                .addOnCompleteListener(this, new OnCompleteListener<PendingDynamicLinkData>() {
+                    @Override
+                    public void onComplete(@NonNull Task<PendingDynamicLinkData> task) {
+                        if (task.getResult() != null)
+                            Log.e("SplashActivity", " task ");
+                    }
+                })
+                .addOnFailureListener(this, new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(SplashActivity.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Log.w("Splash", "getDynamicLink:onFailure", e);
 
                     }
-                }, 1000);
-            }
-
-            @Override
-            public void onDenied(Context context, ArrayList<String> deniedPermissions) {
-                super.onDenied(context, deniedPermissions);
-                finishAffinity();
-            }
-        });
+                });
+        return 1;
     }
 
     private boolean appinstalledOrNot(String uri) {
@@ -115,41 +170,5 @@ public class SplashActivity extends BaseClass {
         Intent i = new Intent(android.content.Intent.ACTION_VIEW);
         i.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.careS365&hl=en_IN" + packageName));
         context.startActivity(i);
-    }
-
-    private int receiveFirebaseDynamicLink() {
-        FirebaseDynamicLinks.getInstance()
-                .getDynamicLink(getIntent())
-                .addOnSuccessListener(this, new OnSuccessListener<PendingDynamicLinkData>() {
-                    @Override
-                    public void onSuccess(PendingDynamicLinkData pendingDynamicLinkData) {
-// Get deep link from result (may be null if no link is found)
-                        Uri deepLink = null;
-                        if (pendingDynamicLinkData != null) {
-
-                            deepLink = pendingDynamicLinkData.getLink();
-                            Constants.inviteCode = deepLink.toString().substring(deepLink.toString().indexOf('=') + 1, deepLink.toString().indexOf('&'));
-                            Constants.invitedBy = deepLink.toString().substring(deepLink.toString().indexOf('&') + 8, deepLink.toString().lastIndexOf('&'));
-                            //invitedBy = deepLink.toString().substring(deepLink.toString().lastIndexOf('=') + 1,deepLink.toString().lastIndexOf('&'));
-                            Constants.invitedCircle = deepLink.toString().substring(deepLink.toString().lastIndexOf('=') + 1);
-//                            code = deepLink.toString().substring(deepLink.toString().lastIndexOf('/') + 1);
-
-                            Log.d("+++++++link", "" + deepLink);
-                            Log.d("+++++++code", "" + Constants.inviteCode);
-                            Log.d("+++++++by", "" + Constants.invitedBy);
-                            Log.d("+++++++circle", "" + Constants.invitedCircle);
-                        }
-
-
-                    }
-                })
-                .addOnFailureListener(this, new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(SplashActivity.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
-                        Log.w("abc", "getDynamicLink:onFailure", e);
-                    }
-                });
-        return 1;
     }
 }
