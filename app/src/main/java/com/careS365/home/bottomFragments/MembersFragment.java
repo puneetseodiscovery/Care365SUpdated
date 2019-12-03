@@ -176,7 +176,7 @@ public class MembersFragment extends Fragment implements IMembersFragment {
             public void onMapReady(GoogleMap googleMap) {
 
                 mMap = googleMap;
-                mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
                 mMap.setMinZoomPreference(5);
 
                 mMap.clear();
